@@ -1,0 +1,59 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <p class="lead">Lista de versões</p>
+    <i class='fa fa-sort-amount-desc' style="font-size: 40px;"></i>
+  </div>
+</header>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="box box-info">
+            <div class="box-header">
+                <h3 class="box-title">Versões</h3>
+            </div>
+            <div class="box-body table-responsive">
+                <a type="button" href="#/new-version.html" class="btn btn-primary btn-sm">Nova versão</a><p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#Versão</th>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="version in versions">
+                            <td>{{version.number}}</td>
+                            <td>{{version.release | date:'dd/MM/yyyy HH:mm'}}</td>
+                            <td>
+                                <p ng-repeat="type in version.types">
+                              <span 
+                                    ng-class="{'label label-info': type == 'melhoria', 'label label-danger': type == 'correção'}" 
+                                    style='margin-left:5px;'>{{type}}</span></p>
+                            </td>
+                            <td>
+                                <p ng-repeat="desc in version.description">
+                                    <span>
+                                        <i class='fa fa-check bluecheck'></i>
+                                        {{desc}}
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <p>Car Controle 1.0 |
+        <a href="https://twitter.com/car">@car</a> | <span>controleautorevenda@gmail.com</span>
+      </p>
+  </div>
+</footer>
