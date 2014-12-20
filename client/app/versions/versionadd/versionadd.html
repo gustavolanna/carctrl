@@ -1,0 +1,62 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <p class="lead">Nova versão</p>
+    <i class='fa fa-sort-amount-desc' style="font-size: 40px;"></i>
+  </div>
+</header>
+
+
+<div class="container">
+    <div class="box box-info page-header">
+        <div class="box-header">
+            <h3 class="box-title">Detalhes da versão</h3>
+        </div>
+       	<form name="newDescForm" role="form">
+	        <div class="box-body table-responsive">
+    			<div class="row">
+    				<div class="col-md-5">
+						<div class="alert alert-danger" role="alert" ng-show="newDescForm.valid">
+							Informe os campos obrigatórios
+						</div>
+	    	        	<div class="form-group">
+		            		<label for="versionInput">Versão</label>
+		            		<input type="text" 
+		            				ng-class="{'form-control has-error': form.version.$invalid}" 
+		            				class="form-control" 
+		            				placeholder="Digite a número da nova versão" 
+		            				id="versionInput"
+		            				ng-model="version.number"
+		            				required/>
+	    	        	</div>
+	    	        	<div class="form-group">
+		            		<label>Descrição</label>
+							<div class="input-group" ng-repeat="desc in version.descriptions" style="margin-bottom: 5px;">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{desc.type}} <span class="caret"></span></button>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#" ng-click="desc.type = 'Correção'">Correção</a></li>
+										<li><a href="#" ng-click="desc.type = 'Melhoria'">Melhoria</a></li>
+									</ul>
+								</div><!-- /btn-group -->
+								<input type="text" class="form-control" ng-model="desc.description">
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-primary" ng-click="addDesc()"><i class='fa fa-plus'></i></button>
+								</span>								
+								<span class="input-group-btn" ng-show="showDelBtn(desc)">
+									<button type="submit" class="btn btn-danger" ng-click="removeDesc(desc)"><i class='fa fa-remove'></i></button>
+								</span>								
+							</div><!-- /input-group -->
+		            	</div>
+	    	        	<div class="form-group">
+		            		<label for="sqlInput">Script</label>
+		            		<textarea id="sqlInput" class="form-control" rows="10"></textarea>
+	    	        	</div>
+	    	        	<div class="form-group">
+	       	                <a type="button" href="/versionadd" class="btn btn-primary btn-sm">Salvar</a>
+	       	            </div>
+    				</div>
+	            </div>
+        	</form>
+	    </div>
+    </div>
+</div>

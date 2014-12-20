@@ -1,10 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-
-// Get list of versions
-exports.index = function(req, res) {
-	res.json([{
+var memoryStore = [{
 		number: '1.152',
 		types: ['correção'],
 		release: new Date(2014, 11, 1, 10, 59),
@@ -16,15 +13,23 @@ exports.index = function(req, res) {
 		release: new Date(2014, 11, 8, 9, 30),
 		description: ['baonvsdn', 'faosdf', 'oasdifmaosmf as']
 	},
-		{
+	{
 		number: '1.154',
 		types: ['melhoria'],
 		release: new Date(2014, 11, 15, 12, 0),
 		description: ['aushduahuaheueaheau', 'huah uaeheuahasduif ahsdif', 'anskfnask nfaskdfas asadfihasdkfnaskfjas',  'sdfgsdfgsdgsd22323']
-	}].sort(function(v1, v2) {
+	}];
+
+// Get list of versions
+exports.index = function(req, res) {
+	res.json(memoryStore.sort(function(v1, v2) {
 		if (v1.release === v2.release) {
 			return 0;
 		}
 		return v1.release > v2.release ? -1 : 1;
 	}));
 };
+
+exports.post = function(req, res) {
+	memoryStore.push(req.json);
+}

@@ -115,6 +115,10 @@ module.exports = function (grunt) {
           livereload: true,
           nospawn: true //Without this option specified express won't be reloaded
         }
+      },
+      jshint: {
+        files: ['server/**/*.js', 'client/**/*.js'],
+        tasks: ['jshint']
       }
     },
 
@@ -472,6 +476,7 @@ module.exports = function (grunt) {
             '<%= yeoman.client %>/app',
             '<%= yeoman.client %>/components'
           ],
+          precision: 10,
           compass: false
         },
         files: {
