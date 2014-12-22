@@ -28,16 +28,16 @@
                             <td>{{version.number}}</td>
                             <td>{{version.release | date:'dd/MM/yyyy HH:mm'}}</td>
                             <td>
-                                <p ng-repeat="type in version.types">
+                                <p ng-repeat="type in getTypes(version)">
                               <span 
-                                    ng-class="{'label label-info': type == 'melhoria', 'label label-danger': type == 'correção'}" 
+                                    ng-class="{'label label-info': type == 'Melhoria', 'label label-danger': type == 'Correção'}" 
                                     style='margin-left:5px;'>{{type}}</span></p>
                             </td>
                             <td>
-                                <p ng-repeat="desc in version.description">
+                                <p ng-repeat="desc in version.descs">
                                     <span>
-                                        <i class='fa fa-check bluecheck'></i>
-                                        {{desc}}
+                                        <i ng-class="{'fa fa-check bluecheck': desc.type == 'Melhoria', 'fa fa-check redcheck': desc.type == 'Correção'}" ></i>
+                                        {{desc.desc}}
                                     </span>
                                 </p>
                             </td>

@@ -26,6 +26,13 @@ module.exports = function(app) {
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
+  app.use(function noCache(req, res, next){
+
+    res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.header("Pragma", "no-cache");
+    res.header("Expires",0);
+    next();
+  });
   
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
