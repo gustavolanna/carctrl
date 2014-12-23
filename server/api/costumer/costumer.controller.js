@@ -1,30 +1,24 @@
 'use strict';
-
+var Costumer = require('./costumer.model');
 var _ = require('lodash');
 
 // Get list of costumers
 exports.index = function(req, res) {
-	res.json([
-	{
-		name: 'minas',
-		info: 'Minas Veículos'
-	},
-	{
-		name: 'autopisca',
-		info: 'Auto Pisca'
-	},
-	{
-		name: 'autosport',
-		info: 'Auto Sport'
-	},
-	{
-		name: 'carpro',
-		info: 'Car Pro'
-	}
-	].sort(function(cust1, cust2) {
-		if (cust1.name === cust2.name) {
-			return 0;
+	Costumer.find({}).sort('name').exec(function(err, costumers){
+		if (err) {
+			console.log(err);
+			res.json(500, err);
 		}
-		return cust1.name > cust2.name ? 1 : -1;
-	}));
+		res.json(200, costumers);
+	});
 };
+
+exports.create = function(req, res) {
+	Costumer.create(req.body, function(err, costumer){
+		if (err) {
+			console.log(err);
+			res.json(500);
+		}
+		res.json(201);
+	});
+}

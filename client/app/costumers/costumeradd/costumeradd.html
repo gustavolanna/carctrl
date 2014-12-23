@@ -1,0 +1,48 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <p class="lead">Novo cliente</p>
+    <i class='fa fa-sort-amount-desc' style="font-size: 40px;"></i>
+  </div>
+</header>
+
+
+<div class="container">
+    <div class="box box-info page-header">
+        <div class="box-header">
+            <h3 class="box-title">Dados do cliente</h3>
+        </div>
+       	<form name="newCostumerForm" role="form">
+	        <div class="box-body table-responsive">
+    			<div class="row">
+    				<div class="col-md-5">
+						<div class="alert alert-danger" role="alert" ng-show="newDescForm.valid">
+							Informe os campos obrigatórios
+						</div>
+	    	        	<div class="form-group">
+		            		<label>Nome</label>
+		            		<input type="text" 
+		            				ng-class="{'form-control has-error': form.version.$invalid}" 
+		            				class="form-control" 
+		            				placeholder="Nome do cliente" 
+		            				ng-model="costumer.name"
+		            				required/>
+	    	        	</div>
+	    	        	<div class="form-group">
+		            		<label>CNPJ</label>
+		            		<input type="text" 
+		            				ng-class="{'form-control has-error': form.version.$invalid}" 
+		            				class="form-control" 
+		            				placeholder="CNPJ do cliente" 
+		            				ng-model="costumer.cnpj"
+		            				required/>
+		            	</div>
+	    	        	<div class="form-group">
+	       	                <a type="button" class="btn btn-primary btn-sm" ng-click="save()">Salvar</a>
+	       	                <a type="button" href="/costumers" class="btn btn-danger btn-sm">Cancelar</a>
+	       	            </div>
+    				</div>
+	            </div>
+        	</form>
+	    </div>
+    </div>
+</div>
