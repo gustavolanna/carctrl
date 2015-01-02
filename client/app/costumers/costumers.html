@@ -22,6 +22,7 @@
                             <th>Status</th>
                             <th>Última atualização</th>
                             <th>Hash</th>
+                            <th>Admin</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,12 +30,24 @@
                             <td>{{cli.name}}</td>
                             <td>{{cli.version}}</td>
                             <td>
-                                <span>
-                                    <i ng-class="cli.active ? 'fa fa-check bluecheck' : 'fa fa-check redcheck'"> </i>
-                                </span>
+                                <i ng-show="cli.status==='waiting'" class="glyphicon glyphicon-flash"></i>
+                                <i ng-show="cli.status==='running' || (cli.status === 'waiting' && cli.command==='start')" class="glyphicon glyphicon-play"></i>
+                                <i ng-show="cli.status==='stoped' || (cli.status === 'waiting' && cli.command==='stop')" class="glyphicon glyphicon-stop"></i>
+                                <i ng-show="cli.status === 'waiting' && cli.command==='update'" class="glyphicon glyphicon-refresh"></i>
                             </td>
                             <td>{{cli.lastUpdate | date:'dd/MM/yyyy HH:mm'}}</td>
                             <td>{{cli.hash}}</td>
+                            <td>
+                                  <a href="#" ng-click="start(cli.hash)">
+                                      <i class="glyphicon glyphicon-play"></i>
+                                  </a>
+                                  <a href="#" ng-click="stop(cli.hash)">
+                                      <i class="glyphicon glyphicon-stop"></i>
+                                  </a>
+                                  <a href="#" ng-click="update(cli.hash)">
+                                      <i class="glyphicon glyphicon-refresh"></i>
+                                  </a>                                
+                            </td>
                         </tr>
                     </tbody>
                 </table>

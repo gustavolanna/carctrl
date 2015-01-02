@@ -1,7 +1,22 @@
 'use strict';
 
 angular.module('carctrlApp')
-    .controller('VersionaddCtrl', function ($scope, $http, $location) {
+    .controller('VersionaddCtrl', function ($scope, $http, $location, FileUploader) {
+
+    $scope.saved = false;
+
+    var uploader = $scope.uploader = new FileUploader({
+        url: '/api/files'
+    });
+
+    uploader.onAfterAddingFile = function() {
+        uploader.uploadAll();
+    };
+
+    uploader.onCompleteAll = function() {
+        $location.path('/versions');
+    };
+
     $scope.version = {
         descs: [{}]
     };
@@ -24,7 +39,7 @@ angular.module('carctrlApp')
           return;
         }
         $http.post('/api/versions', $scope.version).success(function() {
-            $location.path('/versions');
+            $scope.saved = true;
         });
     };
 });

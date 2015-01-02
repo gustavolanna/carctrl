@@ -48,16 +48,22 @@
 							</div><!-- /input-group -->
 		            	</div>
 	    	        	<div class="form-group">
-		            		<label for="sqlInput">Url</label>
-		            		<input type="text" class="form-control" ng-model="version.url">
-	    	        	</div>
-	    	        	<div class="form-group">
-	       	                <a type="button" href="/versionadd" class="btn btn-primary btn-sm" ng-click="save()">Salvar</a>
-	       	                <a type="button" href="/versions" class="btn btn-danger btn-sm">Cancelar</a>
+	       	                <a href="/versionadd" class="btn btn-primary btn-sm" ng-click="save()">Salvar</a>
+	       	                <a href="/versions" class="btn btn-danger btn-sm">Cancelar</a>
 	       	            </div>
     				</div>
 	            </div>
         	</form>
-	    </div>
+        	<div class="row" ng-show="saved">
+	        	<div class="col-md-3">
+	        		Arquivo
+                    <input type="file" nv-file-select="" uploader="uploader" />	        	
+                    <br>
+				    <div class="progress" style="">
+				        <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+				    </div>
+				</div>                
+			</div>
+        </div>
     </div>
 </div>

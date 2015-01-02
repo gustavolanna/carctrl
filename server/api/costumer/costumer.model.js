@@ -3,7 +3,7 @@
 var uuid = require('uuid');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
+var crypto = require("crypto");
 
 var CostumerSchema = new Schema({
 	name: String,
@@ -11,7 +11,7 @@ var CostumerSchema = new Schema({
 	cnpj: String,
 	status: String,
 	hash: String,
-	command: String,
+	command: String, //stop, update, start
 	commandDate: Date,
 	lastUpdate: Date
 });
@@ -45,9 +45,12 @@ CostumerSchema.methods = {
 		this.commandDate = new Date();
 	},
 
-	confirm: function(version) {
-		if (this.status === 'waiting') {
-			this.status = this.command === 'play' ? 'running' : 'stoped';
+	confirm: function(cmd, date, version) {
+		var dateMd5 = crypto.createHash("md5")
+							.update(this.commandDate.toString())
+							.digest("hex");
+		if ((this.status === 'waiting') && (this.command === cmd) && (dateMd5 === date)) {
+			this.status = this.command === 'stop' ? 'stoped' : 'running';
 			this.lastUpdate = new Date();
 			if (version) {
 				this.version = version;
