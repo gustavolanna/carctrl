@@ -6,7 +6,7 @@ angular.module('carctrlApp')
 		$scope.costumers = [];
 
 		function getUrl(hash, cmd) {
-			return '/api/status/' + hash + '/' + cmd;
+			return '/api/cmds/' + hash + '/' + cmd;
 		}
 
 		function updateCostumer(costumer) {
