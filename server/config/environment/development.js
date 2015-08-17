@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/carctrl-dev'
+    uri: 'mongodb://localhost/carctrl'
   },
 
   seedDB: true

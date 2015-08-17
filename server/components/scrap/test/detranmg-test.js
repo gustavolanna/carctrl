@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 let captcha = require('../../captcha');
 let sould = require('should');
