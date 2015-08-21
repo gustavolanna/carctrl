@@ -4,7 +4,7 @@ let logger = new winston.Logger({
     transports: [
         new winston.transports.File({
             level: 'debug',
-            filename: __dirname +'/../debug-log.log',
+            filename: '/var/log/carctrl-debug.log',
             handleExceptions: true,
             json: true,
             maxsize: (1024 * 1024 * 10), //10MB

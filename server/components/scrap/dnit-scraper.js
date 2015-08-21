@@ -24,6 +24,7 @@ class DnitScraper {
         logger.info('Scraping html');
         x(html, {
             'error': '#div-error ul li span',
+            'warning': '.container > label',
             'resumo': ['table tr th label, table tr td']
         })(function(err, obj) {
             self.trimObj(obj);
