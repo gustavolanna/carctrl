@@ -1,0 +1,170 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+#div-centro-inicial > div.span4 > .well {
+	height: 180px;
+}
+
+
+@media (min-width: 749px) and (max-width: 979px) {
+	#div-centro-inicial > div.span4 > .well {
+		height: 240px !important;
+	}
+}
+
+@media (max-width: 749px) {
+	#div-centro-inicial > div.span4 > .well {
+		height: auto !important;
+	}
+}
+
+@media (max-width: 767px) {
+}
+	
+
+/*
+ * Alerts
+ */
+
+.alert > li {
+	margin-left: 20px;
+}
+
+ul.alert {
+	margin-left: 0;
+}
+
+
+/*
+ * Cover
+ */
+
+#cover{
+    background: white;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1010;
+    display: none;
+}
+#cover img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -168px;
+    margin-top: -117px;
+}
+
+
+/*
+ * Login Form
+ */
+ 
+#login-form {
+    margin: auto;
+    padding: 1em;
+}
+
+#login-form {
+    margin: auto;
+    width: 470px;
+}
+
+#login-form table {
+	margin: auto;
+}
+
+#login-form th {
+    text-align: right;
+    padding-right: 10px;
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+#login-form td, #login-form th {
+	vertical-align: middle;
+}
+
+#login-form label {
+    font-weight:bold;
+}
+
+
+#img-captcha {
+    border-radius: 4px;
+    background: black;
+    padding-bottom: 0px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    
+}
+
+
+
+@media (min-width: 749px) {
+	.form-menos-espacado .control-label {
+		width: 200px !important;
+	}
+	
+	.form-menos-espacado .controls {
+		margin-left: 220px !important;
+	}
+	
+	.form-menos-margem .control-group {
+		margin-bottom: 10px !important;
+	}
+	
+	.file-label {
+		display: inline !important;
+	}
+}
+
+@media (max-width: 749px) {
+	
+	.file-label {
+		display: block !important;
+	}
+}
+@media (max-width: 480px) {
+	
+}
+
+/*
+ * Lista Infrações
+ */
+#tbl-lista-infracoes th {
+    text-align: right;
+    padding-right: 10px;
+}
+
+#tbl-lista-infracoes label {
+	font-weight: bold !important;
+}
+
+#tbl-lista-infracoes td {
+	padding-bottom: 5px;
+}
+
+.bg-danger, .bg-success {
+	margin-bottom: 20px;
+}
+
+.bg-danger ul, .bg-success ul {
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.bg-danger ul {
+	color: #b94a48;
+	border: 1px solid rgb(238, 211, 215);
+}
+.bg-success ul {
+	color: #468847;
+	border: 1px solid rgb(214, 233, 198);
+}
+

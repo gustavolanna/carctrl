@@ -53,7 +53,7 @@ class DnitScraper {
         let self = this;
         logger.info('Scraping html');
         x(html, {
-            'error': '#div-error ul li span',
+            'error': '.errorMessage li span',
             'warning': '.container > label',
             'labels': ['table tr th'],
             'values': ['table tr td'],

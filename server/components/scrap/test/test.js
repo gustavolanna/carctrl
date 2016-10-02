@@ -27,18 +27,14 @@ scraper.scrap(vhs[0], (err, obj) => {
 // 	console.log(captchaText);
 // });
 
-// let Xray = require('x-ray');
-// let x = Xray();
-
 // dnitScraper = new dnitScraper();
 
-// let html = fs.readFileSync('./samples/DNIT Cidadão.html').toString();
-// dnitScraper.scrap(html, (err, obj) => {
-// 	console.log(JSON.stringify(obj));
-// });
+// let Xray = require('x-ray');
+// let x = Xray();
+// let html = fs.readFileSync('./samples/DNIT Cidadão-error.html').toString();
 
 // x(html, {
-//     'error': '#div-error ul li span',
+//     'error': '.errorMessage li span',
 //     'warning': '.container > label',
 //     'labels': ['table tr th'],
 //     'values': ['table tr td'],

@@ -9,7 +9,7 @@ let LOGIN_URL = 'http://infracoes.dnit.gov.br/dnitcidadao/login.action';
 let SITE_URL = 'http://infracoes.dnit.gov.br/dnitcidadao/login';
 let CAPTCHA_URL = 'http://infracoes.dnit.gov.br/dnitcidadao/Captcha.jpg';
 let DATA_URL = 'http://infracoes.dnit.gov.br/dnitcidadao/consultainfracoes';
-let ERROR_CLASS = '#div-error ul li span';
+let ERROR_CLASS = '.errorMessage li span';
 
 module.exports = new Detran({
     scraper: new Dnit(),
