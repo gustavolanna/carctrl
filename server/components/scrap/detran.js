@@ -1,4 +1,5 @@
 'use strict';
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 let fs = require('fs');
 let logger = require('../log');

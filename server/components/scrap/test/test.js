@@ -8,14 +8,20 @@ let vhs = [{
 	placa: 'GXO8039',
 	chassi: '9BD17141412053494',
 	renavam: '00752942689',
-	estado: 'dnit',
+	estado: 'MG',
 	tries: 3
 }, {
 	placa: 'PWK9996',
 	chassi: '9321JD5J7FD028545',
 	renavam: '01057945975',
-	estado: 'dnit',
+	estado: 'MG',
 	tries: 3	
+}, {
+	placa: 'HNU2386',
+	chassi: '93XJRKB8TACA23284',
+	renavam: '00214203468',
+	estado: 'MG',
+	tries: 3
 }]
 
 scraper.scrap(vhs[0], (err, obj) => {

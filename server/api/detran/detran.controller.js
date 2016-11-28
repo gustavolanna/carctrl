@@ -31,8 +31,7 @@ function handleResult(req, res) {
 	return function (err, obj) {
 		if (err) {
 			res.status(503).json(err);
-		}
-		if (obj.file) {
+		} else if (obj && obj.file) {
 			saveSession(obj);
 			res.status(200).download(obj.file, function() {
 				fs.unlink(obj.file);
