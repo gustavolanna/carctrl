@@ -22,12 +22,20 @@ let vhs = [{
 	renavam: '00214203468',
 	estado: 'MG',
 	tries: 3
+}, {
+	placa: 'HKR3037',
+	chassi: '9BD15822AA6280785',
+	renavam: '00142092878',
+	estado: 'MG',
+	tries: 3
 }]
 
-scraper.scrap(vhs[0], (err, obj) => {
-	console.log(err);
-	console.log(obj);
-});
+vhs.forEach( v => {
+	scraper.scrap(v, (err, obj) => {
+		console.log(err);
+		console.log(obj);
+	});
+})
 
 // captchaBreaker.breakImg('/Users/glanna/captcha.bmp', function(err, captchaText) {
 // 	console.log(captchaText);

@@ -86,7 +86,7 @@ class Scraper {
             x(html, {
                 'error': '.error-message',
                 'situacao': '.retorno-formulario > span:nth-child(2)',
-                'resumo': ['.primeira_coluna label, .segunda_coluna p'],
+                'resumo': ['.primeira_coluna label, .segunda_coluna'],
                 'infracoes': ['.abrir-fechar-table h3, .abrir-fechar-table table tbody tr td'],
                 'restricoes': '.mais-opcoes p a[href^="/veiculos/situacao-do-veiculo/consulta-a-situacao-do-veiculo/-/consulta_impedimentos_veiculo"]@href',
                 'detalhes': ['td a@href']
@@ -103,6 +103,9 @@ class Scraper {
                 for (let i = 0; i < obj.infracoes.length; i++) {
                     obj.infracoes[i] = obj.infracoes[i].trim();
                 }                
+                if (obj.resumo) {
+                    obj.resumo = obj.resumo.map(e => e.trim());
+                }
                 callback(null, {
                     info: obj,
                     detalhes: []
