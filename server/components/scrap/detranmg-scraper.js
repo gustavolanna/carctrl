@@ -65,21 +65,25 @@ class Scraper {
         }
     }
 
-    scrapRestrictions(obj, callback) {
-        if (obj.info.restricoes) {
-            x('https://www.detran.mg.gov.br' + obj.info.restricoes, {
-                'restricoes': ['.retorno-formulario > p'],
-            })
-            (function(err, data) {
-                if (err) {
-                    return callback(err);
-                }
-                obj.info.restricoes = data.restricoes;
-                callback(null, obj)
-            })            
-        } else {
-            callback(null, obj);
-        }        
+    scrapRestrictions(opts) {
+        return function(obj, callback) {
+            if (obj.info.restricoes) {
+                needle.get('https://www.detran.mg.gov.br' + obj.info.restricoes, opts, function(err, response) {
+                    x(response.body, {
+                        'restricoes': ['.retorno-formulario > p'],
+                    })
+                    (function(err, data) {
+                        if (err) {
+                            return callback(err);
+                        }
+                        obj.info.restricoes = data.restricoes;
+                        callback(null, obj)
+                    })
+                });
+            } else {
+                callback(null, obj);
+            }
+        }
     }
 
     scrapMainSite(html) {
@@ -119,7 +123,7 @@ class Scraper {
         async.waterfall([
             this.scrapMainSite(html),
             this.scrapPenalties(opts),
-            this.scrapRestrictions
+            this.scrapRestrictions(opts)
         ], function(err, result) {
             if (err) {
                 return callback(err);
