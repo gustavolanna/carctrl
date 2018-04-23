@@ -45,7 +45,7 @@ class Detran {
         this.params = opts;
     }
 
-    parseHtml(html, vehicle, callback) {
+    parseHtml(html, vehicle, callback, opts) {
         logger.info('[%s] scraping site', vehicle.placa);
         this.scraper.scrap(html, function(err, obj) {
             if (err) {
@@ -54,7 +54,7 @@ class Detran {
             }
             logger.info('[%s] scraped successfully, returning object', vehicle.placa, obj);
             callback(null, obj);
-        });
+        }, opts);
     }
 
     validateLogin(html, callback) {
@@ -107,7 +107,7 @@ class Detran {
                         self.parseHtml(response.body, vehicle, callback);
                     });
                 } else {
-                    self.parseHtml(response.body, vehicle, callback);
+                    self.parseHtml(response.body, vehicle, callback, opts);
                 }
             });
         });

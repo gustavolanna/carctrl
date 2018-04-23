@@ -4,6 +4,7 @@ let Xray = require('x-ray');
 let x = Xray();
 let async = require('async');
 let logger = require('../log');
+let needle = require('needle');
 
 /*
  * Class to scrap site https://www.detran.mg.gov.br
@@ -35,24 +36,24 @@ class Scraper {
         return result;
     }
 
-    scrapPenalties() {
+    scrapPenalties(opts) {
         let self = this;
         return function(obj, callback) {
             let pages = self.getPages(obj.info);
             async.eachSeries(pages, function(item, cb) {
-                x('https://www.detran.mg.gov.br' + item.link, {
-                    'tipo': 'h3',
-                    'infracao': ['.primeira_coluna label, .segunda_coluna p']
-                })
-                .paginate('.acoes p a@href')
-                .limit(item.limit)
-                (function(err, detail) {
-                    if (err) {
-                        return cb(err);
-                    }
-                    obj.detalhes.push(detail);
-                    cb();
-                })
+                needle.get('https://www.detran.mg.gov.br' + item.link, opts, function(err, response){
+                    x(response.body, {
+                        'tipo': 'h3',
+                        'infracao': ['.primeira_coluna label, .segunda_coluna p']
+                    })
+                    (function(err, detail) {
+                        if (err) {
+                            return cb(err);
+                        }
+                        obj.detalhes.push(detail);
+                        cb();
+                    });
+                });
             }, function(err) {
                 if (err) {
                     logger.error('Error when paginating', err);
@@ -114,10 +115,10 @@ class Scraper {
         }
     }
 
-    scrap(html, callback) {
+    scrap(html, callback, opts) {
         async.waterfall([
             this.scrapMainSite(html),
-            this.scrapPenalties(),
+            this.scrapPenalties(opts),
             this.scrapRestrictions
         ], function(err, result) {
             if (err) {
