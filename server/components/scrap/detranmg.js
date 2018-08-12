@@ -5,8 +5,8 @@ let Detran = require('./detran');
 let captchaBreaker = require('../captcha');
 let DetranMG = require('./detranmg-scraper');
 let INVALID_CAPTCHA = "Os caracteres da imagem não foram preenchidos corretamente. Por favor, preencha os dados novamente.";
-let LOGIN_URL = 'https://www.detran.mg.gov.br/veiculos/situacao-do-veiculo/consulta-a-situacao-do-veiculo/-/exibe_dados_veiculo/';
-let SITE_URL = 'https://www.detran.mg.gov.br/veiculos/situacao-do-veiculo/consulta-a-situacao-do-veiculo';
+let LOGIN_URL = 'https://www.detran.mg.gov.br/veiculos/situacao-do-veiculo/consulta-situacao-do-veiculo/-/exibe_dados_veiculo/';
+let SITE_URL = 'https://www.detran.mg.gov.br/veiculos/situacao-do-veiculo/consulta-situacao-do-veiculo';
 let CAPTCHA_URL = 'https://www.detran.mg.gov.br/component/servicosmg/servico/-/captcha2/captcha/';
 let ERROR_CLASS = '.error-message, #flashMessage, .uma_coluna';
 

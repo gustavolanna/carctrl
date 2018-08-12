@@ -107,7 +107,8 @@ class Scraper {
                 logger.debug('Scrap done successfully');
                 for (let i = 0; i < obj.infracoes.length; i++) {
                     obj.infracoes[i] = obj.infracoes[i].trim();
-                }                
+                }
+                obj.situacao = obj.situacao || '';
                 if (obj.resumo) {
                     obj.resumo = obj.resumo.map(e => e.trim());
                 }
@@ -115,7 +116,7 @@ class Scraper {
                     info: obj,
                     detalhes: []
                 });
-            });        
+            });
         }
     }
 
