@@ -23,8 +23,12 @@ exports.index = function(req, res) {
     client.query(prep({ cep: req.params.cep }), function(err, rows) {
       if (err)
         res.send(500, err);
+      else if (!rows[0])
+        res.send(404);
       else
         res.send(200, rows[0]);
+
+      console.log(rows[0]) ;
     });
      
     client.end();
