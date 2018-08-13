@@ -93,7 +93,7 @@ class Scraper {
                 'situacao': '.retorno-formulario > span:nth-child(2)',
                 'resumo': ['.primeira_coluna label, .segunda_coluna'],
                 'infracoes': ['.abrir-fechar-table h3, .abrir-fechar-table table tbody tr td'],
-                'restricoes': '.mais-opcoes p a[href^="/veiculos/situacao-do-veiculo/consulta-a-situacao-do-veiculo/-/consulta_impedimentos_veiculo"]@href',
+                'restricoes': '.mais-opcoes p a[href^="/veiculos/situacao-do-veiculo/consulta-situacao-do-veiculo/-/consulta_impedimentos_veiculo"]@href',
                 'detalhes': ['td a@href']
             })(function(err, obj) {
                 logger.info('Scraping main site done ', obj);
