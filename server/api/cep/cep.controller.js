@@ -12,7 +12,7 @@ exports.index = function(req, res) {
       charset: 'utf8'
     });
 
-    let prep = client.prepare(`select e.endereco_cep, e.endereco_logradouro, b.bairro_descricao, u.uf_sigla 
+    let prep = client.prepare(`select e.endereco_cep, e.endereco_logradouro, b.bairro_descricao, u.uf_sigla, c.cidade_descricao
                           from  endereco e, bairro b, cidade c, uf u 
                           where e.bairro_codigo = b.bairro_codigo 
                           and   b.cidade_codigo = c.cidade_codigo 
@@ -27,8 +27,6 @@ exports.index = function(req, res) {
         res.send(404);
       else
         res.send(200, rows[0]);
-
-      console.log(rows[0]) ;
     });
      
     client.end();
