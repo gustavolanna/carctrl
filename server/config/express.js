@@ -21,6 +21,19 @@ module.exports = function(app) {
     app.engine('html', require('ejs').renderFile);
     app.set('view engine', 'html');
     app.use(compression());
+    app.use(function(req, res, next) {
+      req.rawBody = '';
+      req.setEncoding('utf8');
+    
+      req.on('data', function(chunk) { 
+        req.rawBody += chunk;
+      });
+    
+      req.on('end', function() {
+        console.log(req.rawBody);
+        next();
+      });
+    });
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
     app.use(methodOverride());
