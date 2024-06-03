@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://infracoes.dnit.gov.br/dnitcidadao/login.action -->
+<html class="no-js"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>DNIT Cidadão</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="./DNIT Cidadão-error_files/bootstrap.css">
+    <style>
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+<!--     <link rel="stylesheet" href="css/bootstrap-responsive.css"> -->
+<!--     <link rel="stylesheet" href="css/bootstrap-fileupload.min.css"> -->
+    <link rel="stylesheet" href="./DNIT Cidadão-error_files/jasny-bootstrap.min.css">
+    <link rel="stylesheet" href="./DNIT Cidadão-error_files/apprise.css">
+    <link rel="stylesheet" href="./DNIT Cidadão-error_files/main.css">
+</head>
+<body cz-shortcut-listen="true">
+		<style>
+		body {
+			padding-top: 10px !important;
+			padding-bottom: 0px !important;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+		.well table td, .well table th {
+			padding-top: 3px;
+			padding-bottom: 3px;
+		}
+		.well .form-control {
+			display: inline !important;
+		}
+		</style>
+        <div id="wrap">
+            <div id="contentt">
+				
+				<div class="bg-danger">
+	                	<ul class="errorMessage">
+            <li><span>Código de verificação inválido! Tente novamente!</span></li>	</ul>
+
+				</div>
+				<div class="bg-success">
+	                
+				</div>
+				
+
+				
+               	<h2 style="text-align: center;">Consulta Veículo<br><small>Para consulta de infrações, impressão de boleto para pagamento e consulta de andamento de FICI, defesa de autuação e recurso</small></h2>
+                <div id="login-form" class="well">
+                    <form id="login" name="form_login" action="http://infracoes.dnit.gov.br/dnitcidadao/login.action" method="post">
+                        <input type="hidden" name="envio" value="true" id="login_envio">
+                        <table id="tbl-login">
+                            <tbody><tr>
+                                <th>
+                                    <label for="placa">Placa:</label>
+                                </th>
+                                <td style="text-align:left">
+                                    <input type="text" name="placa" size="40" value="GXO8039" id="login_placa" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label for="renavam">RENAVAM:</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="renavam" size="40" value="00752942689" id="login_renavam" class="form-control">
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <th style="width:120px;">
+                                    <label for="captcha">Verificação de Segurança:</label>
+                                </th>
+                                <td style="text-align:left; width: 300px;">
+                                    <input type="text" name="captcha" maxlength="6" value="123213" id="login_captcha" class="form-control" style="width: 112px;">
+                                    <img id="img-captcha" src="./DNIT Cidadão-error_files/Captcha.jpg" border="0">
+                                    
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <th></th>
+                                <td align="left">
+                                    <input class="btn btn-primary" type="submit" value="Enviar">
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </form>
+
+
+
+
+                </div>
+                
+                
+                
+                <br><br>
+                
+               	<h2 style="text-align: center;">Acesso Cidadão<br><small>Para impressão de notificações e envio de FICI, Defesa de Autuação e Recurso</small></h2>
+                <div id="login-form" class="well">
+		            <form id="acesso_usuario" name="form_login" action="http://infracoes.dnit.gov.br/dnitcidadao/acesso_usuario.action" method="post">
+		                <input type="hidden" name="inicial" value="true" id="acesso_usuario_inicial">
+		                <table id="tbl-login">
+							<tbody><tr>
+								<th></th>
+								<td style="padding-bottom: 10px;">
+									Não possui cadastro? <a href="http://infracoes.dnit.gov.br/dnitcidadao/form_cadastro_usuario">Cadastrar-se</a>
+								</td>
+							</tr>
+		                    <tr>
+		                        <th>
+		                            <label for="cpf">CPF/CNPJ:</label>
+		                        </th>
+		                        <td style="text-align:left">
+		                            <input class="form-control" type="text" id="cpf" name="usuario.cpf" value="" size="40" maxlength="20" required="">
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                        <th>
+		                            <label for="senha">Senha:</label>
+		                        </th>
+		                        <td>
+		                            <input class="form-control" type="password" id="senha" name="usuario.senha" size="40" maxlength="30" value="" required="">
+		                        </td>
+		                    </tr>
+                            
+                            <tr>
+                                <th style="width:120px;">
+                                    <label for="captcha">Verificação de Segurança:</label>
+                                </th>
+                                <td style="text-align:left; width: 300px;">
+                                    <input type="text" name="captcha" maxlength="6" value="123213" id="acesso_usuario_captcha" class="form-control" style="width: 112px;">
+                                    <img id="img-captcha" src="./DNIT Cidadão-error_files/Captcha.jpg" border="0">
+                                    
+                                </td>
+                            </tr>
+		                    
+		                    <tr>
+		                        <th></th>
+		                        <td align="left">
+		                            <input class="btn btn-primary" type="submit" value="Acessar">
+		                            <a href="http://infracoes.dnit.gov.br/dnitcidadao/form_recuperar_senha">Esqueci minha senha</a>
+		                        </td>
+		                    </tr> 
+		                    
+		                </tbody></table>
+		            </form>
+
+
+
+
+		        </div>
+		        
+		        
+				
+            </div>
+        </div><!-- /#wrap -->
+        
+		<div style="position: absolute; right: 70px; bottom: 20px; font-weight: normal; font-size: 10px; padding-top: 30px;">Versão: 4.06</div>
+
+	
+    
+        <!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script-->
+        <script src="./DNIT Cidadão-error_files/jquery-1.9.1.min.js"></script>
+    	<script src="./DNIT Cidadão-error_files/apprise-1.5.full.js"></script>
+
+        <script src="./DNIT Cidadão-error_files/bootstrap.min.js"></script>
+<!--         <script src="js/vendor/bootstrap-fileupload.min.js"></script> -->
+        <script src="./DNIT Cidadão-error_files/jasny-bootstrap.min.js"></script>
+
+        <script src="./DNIT Cidadão-error_files/main.js"></script>
+    
+
+</body></html>
